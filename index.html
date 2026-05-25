@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Qazi Basit Saeed</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8C96B;
+  --navy:#0B1628;
+  --navy2:#132035;
+  --navy3:#1C2E4A;
+  --slate:#2A3F5F;
+  --text:#E8EDF5;
+  --muted:#8FA3BF;
+  --border:rgba(201,168,76,0.25);
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.7}
+a{color:var(--gold);text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(11,22,40,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--gold);letter-spacing:1px}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);font-size:.9rem;letter-spacing:.5px;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:100px 2rem 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(28,46,74,0.8) 0%, transparent 50%);pointer-events:none}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-inner{max-width:1100px;width:100%;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-text h1{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;line-height:1.15;margin-bottom:.5rem}
+.hero-text h1 span{color:var(--gold)}
+.hero-subtitle{font-size:1.1rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:1.2rem}
+.hero-desc{color:var(--muted);font-size:1rem;max-width:480px;margin-bottom:2rem}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.badge{background:rgba(201,168,76,0.12);border:1px solid var(--border);color:var(--gold-light);padding:.3rem .8rem;border-radius:20px;font-size:.8rem;letter-spacing:.5px}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:.75rem 2rem;border-radius:6px;font-weight:700;font-size:.95rem;transition:all .2s}
+.btn-primary:hover{background:var(--gold-light);color:var(--navy)}
+.btn-outline{border:1px solid var(--border);color:var(--gold);padding:.75rem 2rem;border-radius:6px;font-size:.95rem;transition:all .2s}
+.btn-outline:hover{background:rgba(201,168,76,0.1)}
+.hero-photo-wrap{position:relative;display:flex;justify-content:center}
+.hero-photo-ring{position:absolute;inset:-12px;border-radius:50%;border:2px solid var(--border);animation:spin 20s linear infinite}
+.hero-photo-ring2{position:absolute;inset:-24px;border-radius:50%;border:1px dashed rgba(201,168,76,0.2);animation:spin 30s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-photo{width:320px;height:320px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--gold);position:relative;z-index:1;background:var(--navy3);display:flex;align-items:center;justify-content:center}
+.hero-stat-strip{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+.stat-item .num{font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-item .lbl{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+
+/* SECTION BASE */
+section{padding:80px 2rem}
+.sec-inner{max-width:1100px;margin:auto}
+.sec-tag{color:var(--gold);font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.5rem;font-weight:600}
+.sec-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-bottom:.5rem}
+.sec-line{width:60px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:2.5rem}
+
+/* ABOUT */
+#about{background:var(--navy2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--muted);margin-bottom:1rem;font-size:.98rem}
+.about-text p strong{color:var(--text)}
+.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.hl-card{background:var(--navy3);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center}
+.hl-card .icon{font-size:1.8rem;margin-bottom:.5rem}
+.hl-card p{font-size:.85rem;color:var(--muted)}
+.hl-card strong{display:block;color:var(--gold);font-size:1rem;margin-bottom:.25rem}
+.about-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.about-photo-grid img{width:100%;border-radius:10px;object-fit:cover;border:1px solid var(--border)}
+.about-photo-grid img:first-child{grid-column:1/-1;height:220px}
+.about-photo-grid img:not(:first-child){height:160px}
+
+/* EXPERIENCE */
+#experience{background:var(--navy)}
+.timeline{position:relative;padding-left:2.5rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),transparent)}
+.tl-item{position:relative;margin-bottom:2.5rem}
+.tl-dot{position:absolute;left:-2.9rem;top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--navy);border:2px solid var(--gold)}
+.tl-company{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.company-badge{background:rgba(201,168,76,0.12);border:1px solid var(--border);color:var(--gold);padding:.25rem .75rem;border-radius:4px;font-size:.8rem;font-weight:600;letter-spacing:.5px}
+.tl-role{font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.tl-period{font-size:.82rem;color:var(--muted);margin-bottom:.7rem}
+.tl-bullets{list-style:none;padding:0}
+.tl-bullets li{color:var(--muted);font-size:.9rem;padding:.3rem 0 .3rem 1.2rem;position:relative}
+.tl-bullets li::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:.75rem}
+
+/* SKILLS */
+#skills{background:var(--navy2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.skill-card{background:var(--navy3);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+.skill-card h3{font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.skill-item{margin-bottom:1rem}
+.skill-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem}
+.skill-name{font-size:.88rem;color:var(--text)}
+.skill-pct{font-size:.8rem;color:var(--muted)}
+.skill-bar{height:5px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width .8s ease}
+
+/* CERTS */
+#certs{background:var(--navy)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+.cert-card{background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;display:flex;align-items:flex-start;gap:.85rem}
+.cert-icon{width:40px;height:40px;border-radius:8px;background:rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}
+.cert-name{font-size:.9rem;font-weight:600;color:var(--text);line-height:1.3}
+.cert-org{font-size:.8rem;color:var(--muted);margin-top:.2rem}
+
+/* GALLERY */
+#gallery{background:var(--navy2)}
+.gallery-label{font-size:.82rem;text-align:center;color:var(--muted);margin-top:.6rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.gallery-item{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--border)}
+.gallery-item img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .4s}
+.gallery-item:hover img{transform:scale(1.05)}
+.gallery-item .overlay{position:absolute;inset:0;background:rgba(11,22,40,0.7);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1rem}
+.gallery-item:hover .overlay{opacity:1}
+.overlay-text{color:var(--gold);font-size:.85rem;font-weight:600}
+
+/* CONTACT */
+#contact{background:var(--navy3);border-top:1px solid var(--border)}
+.contact-inner{max-width:700px;margin:auto;text-align:center}
+.contact-inner p{color:var(--muted);margin-bottom:2.5rem;font-size:1rem}
+.contact-cards{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.contact-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:1.5rem 2rem;min-width:200px;text-align:center;transition:border-color .2s}
+.contact-card:hover{border-color:var(--gold)}
+.contact-card .c-icon{font-size:1.8rem;margin-bottom:.5rem}
+.contact-card .c-type{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem}
+.contact-card .c-val{font-size:.9rem;color:var(--gold)}
+
+/* FOOTER */
+footer{text-align:center;padding:1.5rem;background:var(--navy);border-top:1px solid var(--border);color:var(--muted);font-size:.8rem}
+
+/* AWARD BANNER */
+.award-banner{background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;align-items:center;gap:1.25rem;margin-bottom:2.5rem}
+.award-trophy{font-size:2.5rem}
+.award-text strong{color:var(--gold);font-size:1rem;display:block}
+.award-text span{color:var(--muted);font-size:.88rem}
+
+@media(max-width:768px){
+  .hero-inner,.about-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-photo{width:240px;height:240px}
+  .hero-photo-ring{inset:-8px}.hero-photo-ring2{inset:-18px}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .hero-stat-strip{gap:1.2rem}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Qazi Basit Saeed</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#family">Family</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-lines"></div>
+    <div class="hero-inner" style="grid-template-columns:1fr">
+    <div class="hero-text" style="max-width:700px;margin:auto;text-align:center">
+      <div class="hero-subtitle">Global Operations Manager</div>
+      <h1>Qazi Basit<br><span>Saeed</span></h1>
+      <p class="hero-desc" style="margin:0 auto 2rem">20+ years pioneering operational excellence in Oil &amp; Gas — from wellsites across Pakistan and Malaysia to leading ESG &amp; decarbonization technologies across the Middle East.</p>
+      <div class="hero-badges" style="justify-content:center">
+        <span class="badge">ESG Technologies</span>
+        <span class="badge">Produced Water Treatment</span>
+        <span class="badge">ISO / API Q2</span>
+        <span class="badge">HPHT Well Testing</span>
+        <span class="badge">DLE &amp; Mineral Recovery</span>
+      </div>
+      <div class="hero-cta" style="justify-content:center">
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+        <a href="#experience" class="btn-outline">View Career</a>
+      </div>
+      <div class="hero-stat-strip" style="justify-content:center">
+        <div class="stat-item"><div class="num">20+</div><div class="lbl">Years Experience</div></div>
+        <div class="stat-item"><div class="num">4</div><div class="lbl">Countries</div></div>
+        <div class="stat-item"><div class="num">5+</div><div class="lbl">Major Employers</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-inner">
+    <div class="sec-tag">Who I Am</div>
+    <h2 class="sec-title">About Me</h2>
+    <div class="sec-line"></div>
+
+    <div class="award-banner">
+      <div class="award-trophy">🏆</div>
+      <div class="award-text">
+        <strong>Innovation &amp; Technology Award — NESR</strong>
+        <span>Recognised on stage for outstanding contribution to innovation and technology in the energy sector</span>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a <strong>Senior Operations and Quality Leader</strong> with over two decades of hands-on experience in the Oil &amp; Gas industry. My career spans well testing, ISO/API Q2 quality systems, produced water treatment, and the deployment of cutting-edge ESG technologies.</p>
+        <p>Currently serving as <strong>Global Operations Manager at NESR (National Energy Services Reunited)</strong> in Al Khobar, Saudi Arabia, I lead the global delivery of ESG and decarbonization solutions — including Direct Lithium Extraction, GHG detection, and Zero Liquid Discharge water projects.</p>
+        <p>From frontline field operations in Pakistan to regional training roles across East Asia and quality leadership in Saudi Arabia, I have built a career defined by <strong>operational excellence, quality governance, and technological innovation</strong>.</p>
+        <div class="about-highlights">
+          <div class="hl-card"><div class="icon">🌍</div><strong>Al Khobar, KSA</strong><p>Current base of operations</p></div>
+          <div class="hl-card"><div class="icon">💧</div><strong>ZLD &amp; Water Tech</strong><p>Hyper-saline to freshwater solutions</p></div>
+          <div class="hl-card"><div class="icon">🌿</div><strong>ESG Leader</strong><p>Flare-to-Forest &amp; GHG Quantification</p></div>
+          <div class="hl-card"><div class="icon">📋</div><strong>API Q2 Auditor</strong><p>Lead auditor &amp; quality coach</p></div>
+        </div>
+      </div>
+      <div class="about-photo-grid" id="photo-grid">
+        <!-- photos injected by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-inner">
+    <div class="sec-tag">Career Journey</div>
+    <h2 class="sec-title">Professional Experience</h2>
+    <div class="sec-line"></div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-company"><span class="company-badge">NESR</span><span style="color:var(--muted);font-size:.85rem">Saudi Arabia</span></div>
+        <div class="tl-role">Global Operations Manager</div>
+        <div class="tl-period">May 2025 – Present</div>
+        <ul class="tl-bullets">
+          <li>Lead global delivery of ESG and decarbonization technologies across regions</li>
+          <li>Managing Direct Lithium Extraction (DLE) from produced and aquifer waters</li>
+          <li>Delivering Mineral Recovery Solutions for purified minerals from produced water</li>
+          <li>GHG detection and quantification projects for oil &amp; gas processing facilities</li>
+          <li>Directing produced water treatment projects for reinjection compliance and industrial reuse</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-company"><span class="company-badge">NESR</span><span style="color:var(--muted);font-size:.85rem">Saudi Arabia</span></div>
+        <div class="tl-role">Service Delivery Manager</div>
+        <div class="tl-period">Aug 2023 – April 2025</div>
+        <ul class="tl-bullets">
+          <li>Executed produced water treatment projects converting hyper-saline water to fresh quality</li>
+          <li>Delivered ZLD projects enabling wastewater reuse and sustainable industrial water solutions</li>
+          <li>Established and grew ESG and sustainable technologies division</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-company"><span class="company-badge">NESR</span><span style="color:var(--muted);font-size:.85rem">Saudi Arabia</span></div>
+        <div class="tl-role">Service Quality Manager &amp; ESG Project Lead</div>
+        <div class="tl-period">May 2023 – Aug 2023</div>
+        <ul class="tl-bullets">
+          <li>Led ISO/API Q2 service quality implementation</li>
+          <li>Directed ESG pilot projects across the region</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-company"><span class="company-badge">NESR</span><span style="color:var(--muted);font-size:.85rem">Saudi Arabia</span></div>
+        <div class="tl-role">Service Quality Coach</div>
+        <div class="tl-period">Feb 2019 – Apr 2023</div>
+        <ul class="tl-bullets">
+          <li>Audited, improved, and coached Quality Management Systems supporting critical operations</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-company"><span class="company-badge">TETRA Technologies</span><span style="color:var(--muted);font-size:.85rem">Saudi Arabia</span></div>
+        <div class="tl-role">Field Service Quality Coordinator</div>
+        <div class="tl-period">Feb 2015 – Apr 2018</div>
+        <ul class="tl-bullets">
+          <li>Managed service quality, training, and compliance for well testing and chemical operations</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-company"><span class="company-badge">Schlumberger</span><span style="color:var(--muted);font-size:.85rem">Malaysia</span></div>
+        <div class="tl-role">Field Service Manager</div>
+        <div class="tl-period">Apr 2012 – Jan 2015</div>
+        <ul class="tl-bullets">
+          <li>Led full-spectrum Well Testing operations with P&amp;L accountability</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-company"><span class="company-badge">Schlumberger</span><span style="color:var(--muted);font-size:.85rem">Malaysia</span></div>
+        <div class="tl-role">Field Training Champion</div>
+        <div class="tl-period">Mar 2010 – Mar 2012</div>
+        <ul class="tl-bullets">
+          <li>Directed regional technical and safety training programs across East Asia GeoMarket</li>
+          <li>Conducted wellsite audits and personnel development initiatives</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-company"><span class="company-badge">Schlumberger</span><span style="color:var(--muted);font-size:.85rem">Pakistan</span></div>
+        <div class="tl-role">Engineer In-Charge / HPHT Job Supervisor / Field Specialist</div>
+        <div class="tl-period">Jul 2003 – Mar 2010</div>
+        <ul class="tl-bullets">
+          <li>Managed well testing equipment, crews, and client delivery</li>
+          <li>Supervised HPHT well testing with full safety and execution responsibility</li>
+          <li>Delivered frontline DST, SWT, TDA, and multiphase flow meter services</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-inner">
+    <div class="sec-tag">Expertise</div>
+    <h2 class="sec-title">Core Competencies</h2>
+    <div class="sec-line"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>⚙️ Operations &amp; Well Testing</h3>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Well Testing (SWT, DST, HPHT, TDA)</span><span class="skill-pct">98%</span></div><div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">P&amp;L &amp; Operations Management</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Multiphase Flow Metering</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+      </div>
+      <div class="skill-card">
+        <h3>🌿 ESG &amp; Water Technologies</h3>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Produced Water Treatment / ZLD</span><span class="skill-pct">97%</span></div><div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Direct Lithium Extraction (DLE)</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">GHG Detection &amp; Quantification</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+      </div>
+      <div class="skill-card">
+        <h3>📋 Quality &amp; Governance</h3>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">ISO / API Q2 Quality Systems</span><span class="skill-pct">98%</span></div><div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Auditing &amp; Compliance</span><span class="skill-pct">97%</span></div><div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">QHSE Risk Management</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+      </div>
+      <div class="skill-card">
+        <h3>🎓 Leadership &amp; People</h3>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Training &amp; Competency Development</span><span class="skill-pct">96%</span></div><div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Client &amp; Stakeholder Management</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Cross-Cultural Communication</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="sec-inner">
+    <div class="sec-tag">Credentials</div>
+    <h2 class="sec-title">Certifications &amp; Training</h2>
+    <div class="sec-line"></div>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-icon">📜</div><div><div class="cert-name">API Q2 Lead Auditor</div><div class="cert-org">American Petroleum Institute</div></div></div>
+      <div class="cert-card"><div class="cert-icon">📜</div><div><div class="cert-name">API Q2 Practitioner</div><div class="cert-org">American Petroleum Institute</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔍</div><div><div class="cert-name">TapRooT® Root Cause Analysis</div><div class="cert-org">System Improvements Inc.</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🎓</div><div><div class="cert-name">Train the Trainer</div><div class="cert-org">Professional Development</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🏫</div><div><div class="cert-name">Field Service Manager School</div><div class="cert-org">Schlumberger</div></div></div>
+      <div class="cert-card"><div class="cert-icon">⚠️</div><div><div class="cert-name">QHSE-3 / OFS-3</div><div class="cert-org">Safety &amp; Health Standards</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🌊</div><div><div class="cert-name">Multiphase Flow Meter</div><div class="cert-org">Specialist Certification</div></div></div>
+      <div class="cert-card"><div class="cert-icon">⚙️</div><div><div class="cert-name">Well Testing Specialist</div><div class="cert-org">Schlumberger</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🎓</div><div><div class="cert-name">Associate Engineering (Mechanical)</div><div class="cert-org">C.M.T.I, Islamabad — Construction Machinery</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section id="family">
+  <div class="sec-inner">
+    <div class="sec-tag">Beyond Work</div>
+    <h2 class="sec-title">My Family</h2>
+    <div class="sec-line"></div>
+    <p style="color:var(--muted);max-width:600px;margin-bottom:2.5rem;font-size:.98rem;">Behind every milestone is the unwavering support of a loving family. They are my greatest achievement.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem">
+
+      <div style="background:var(--navy3);border:1px solid var(--border);border-radius:14px;padding:1.75rem;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(201,168,76,0.15);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem">👩</div>
+        <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.25rem">Shaista Saeed</div>
+        <div style="font-size:.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:.75rem">Wife</div>
+        <div style="font-size:.88rem;color:var(--muted)">FS Teacher — shaping young minds with dedication and care</div>
+      </div>
+
+      <div style="background:var(--navy3);border:1px solid var(--border);border-radius:14px;padding:1.75rem;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(201,168,76,0.15);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem">👦</div>
+        <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.25rem">Abdullah Saeed</div>
+        <div style="font-size:.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:.75rem">Son</div>
+        <div style="font-size:.88rem;color:var(--muted)">Student at BISAK — the next generation carrying the family's legacy forward</div>
+      </div>
+
+      <div style="background:var(--navy3);border:1px solid var(--border);border-radius:14px;padding:1.75rem;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(201,168,76,0.15);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem">👦</div>
+        <div style="font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:.25rem">Hamza Saeed</div>
+        <div style="font-size:.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:.75rem">Son</div>
+        <div style="font-size:.88rem;color:var(--muted)">Student at BISAK — curious, ambitious, and full of potential</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-inner contact-inner">
+    <div class="sec-tag" style="text-align:center">Let's Connect</div>
+    <h2 class="sec-title" style="text-align:center">Get In Touch</h2>
+    <div class="sec-line" style="margin:0 auto 1.5rem"></div>
+    <p>Available for consulting engagements, speaking opportunities, and strategic partnerships in the Energy &amp; ESG sector.</p>
+    <div class="contact-cards">
+      <a href="tel:+966559914746" class="contact-card">
+        <div class="c-icon">📞</div>
+        <div class="c-type">Phone</div>
+        <div class="c-val">+966 55 991 4746</div>
+      </a>
+      <a href="mailto:qazibasitsaeed@yahoo.com" class="contact-card">
+        <div class="c-icon">✉️</div>
+        <div class="c-type">Email</div>
+        <div class="c-val">qazibasitsaeed@yahoo.com</div>
+      </a>
+      <div class="contact-card">
+        <div class="c-icon">📍</div>
+        <div class="c-type">Location</div>
+        <div class="c-val">Al Khobar, Saudi Arabia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Qazi Basit Saeed · Global Operations Manager · NESR</p>
+</footer>
+
+<script>
+const photos = [];
+const galleryGrid = document.getElementById('gallery-grid');
+galleryGrid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:2rem;font-size:.95rem;">Photos coming soon</div>`;
+const aboutGrid = document.getElementById('photo-grid');
+aboutGrid.innerHTML = '';
+
+const galleryCaption = [
+  "IPTC Conference 2024 — Dhahran Expo",
+  "Presenting Flare-to-Forest™ technology",
+  "Innovation &amp; Technology Award ceremony",
+  "NAP Tech Conference &amp; Exhibition 2025",
+  "NESR Oilfield Research &amp; Innovation Centre",
+  "Building winning teams across the region",
+];
+
+const galleryGrid = document.getElementById('gallery-grid');
+photos.forEach((p,i)=>{
+  const div = document.createElement('div');
+  div.className = 'gallery-item';
+  div.innerHTML = `<img src="${p.src}" alt="${p.alt}"/><div class="overlay"><span class="overlay-text">${galleryCaption[i]}</span></div>`;
+  galleryGrid.appendChild(div);
+});
+
+const aboutGrid = document.getElementById('photo-grid');
+const aboutPhotos = photos.slice(0,3);
+aboutPhotos.forEach((p,i)=>{
+  const img = document.createElement('img');
+  img.src = p.src; img.alt = p.alt;
+  aboutGrid.appendChild(img);
+});
+</script>
+
+<script>
+// Note to viewer: Replace placeholder image src values above with the actual
+// uploaded photo file paths once the site is hosted. The photos are ready to drop in.
+// Hero photo: use the conference selfie (Photo 1)
+// Gallery order: Photo 1 → Photo 2 → Photo 3 → Photo 4 → Photo 5 → Photo 6
+</script>
+</body>
+</html>
